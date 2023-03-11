@@ -1,0 +1,36 @@
+<%- include('./partials/header') %>
+
+<h1>Compose</h1>
+<main id="main">
+  <section id="contact" class="contact mb-5">
+    <div class="container" data-aos="fade-up">
+
+      <div class="form mt-5">
+        <h1>Comose here</h1>
+<form action="/compose" method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+    <b><label for="title">Title</label></b>
+        <input type="text" class="form-control" id="composedTitle" name ="composedTitle">
+      </div>
+
+    <div class="form-group">
+        <b><label for="textcontent">Post</label></b>
+        <textarea class="form-control" id="postContent" name ="postContent" rows="3"></textarea>
+      </div>
+<br>
+      <div class="form-group">
+        <b><label for="title">Image Upload </label> </b>
+        <input type="file" class="form-control" name="composedImage" id="composedImage">
+      </div><br>
+      <div class="text-center">
+      <button class=" btn btn-primary" type="submit">Publish</button>
+    </div>
+</form>
+</div>
+</div>
+</section>
+</main>
+
+
+<%- include('./partials/footer') %>

@@ -1,0 +1,121 @@
+<%- include('./partials/header') %>
+
+
+
+          <main id="main">
+
+            <!-- ======= Hero Slider Section ======= -->
+            <section id="hero-slider" class="hero-slider">
+              <div class="container-md" data-aos="fade-in">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="swiper sliderFeaturedPosts">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('/assets/img/img1.png');">
+                            <div class="img-bg-inner">
+                              <h2>Computer Science Articles</h2>
+                              <p> A range of computer science topics such as operating systems, databases, computer networks, and more.</p>
+                            </div>
+                          </a>
+                        </div>
+        
+                        <div class="swiper-slide">
+                          <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('/assets/img/img2.jpg');">
+                            <div class="img-bg-inner">
+                              <h2>Games And Stuff</h2>
+                              <p> Content related to various games, such as reviews, walkthroughs, tips, and tricks on popular games across various platforms such as PC, consoles, and mobile</p>
+                            </div>
+                          </a>
+                        </div>
+        
+                        <div class="swiper-slide">
+                          <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/img_pr.jpg');">
+                            <div class="img-bg-inner">
+                              <h2>Programming </h2>
+                              <p>Content related to  Programming such as problem solving techniques, approaches and solving errors </p>
+                            </div>
+                          </a>
+                        </div>
+        
+                        
+                      </div>
+                      <div class="custom-swiper-button-next">
+                        <span class="bi-chevron-right"></span>
+                      </div>
+                      <div class="custom-swiper-button-prev">
+                        <span class="bi-chevron-left"></span>
+                      </div>
+        
+                      <div class="swiper-pagination"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section><!-- End Hero Slider Section -->
+        
+            <!-- ======= Post Grid Section ======= -->
+            <section id="posts" class="posts">
+              <div class="container" data-aos="fade-up">
+                <div class="row g-5">
+                  <div class="col-lg-4">
+                    <div class="post-entry-1 lg">
+                      <a href="#"><img src="/assets/img/journal.jpg" alt="" class="img-fluid"></a>
+                      <h2><a href="single-post.html">Welcome</a></h2>
+                      <p class="mb-4 d-block">I believe that learning should be fun, engaging, and accessible to everyone. That's why i strive to create content that is not only informative but also entertaining and interactive. I believe that by sharing our passion for programming, games, and computer science, we can help inspire the next generation of tech innovators and creators.</p>
+        
+                      <div class="d-flex align-items-center author">
+                        <div class="photo"><img src="/assets/img/ayush.jpeg" alt="" class="img-fluid"></div>
+                        <div class="name">
+                          <h3 class="m-0 p-0">Ayush Singh</h3>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+        
+                  <div class="col-lg-8">
+                    <div class="row g-5">
+                      <div class="col-lg-6 border-start custom-border">
+
+                        <%for(let i =0; i<posts.length; i++){%>
+                          <% if(i%2 === 0){ %>
+                        <div class="post-entry-1">
+                          <a href="/posts/<%=posts[i]._id%>"><img src="/uploads/<%=posts[i].image%>" alt="" class="img-fluid"></a>
+                          <div class="post-meta"><span><%=posts[i].postdate%></span></div>
+                          <h2><a href="/post/<%=posts[i]._id%>"><%=posts[i].title%></a></h2>
+                          <p class="mb-4 d-block"><%=posts[i].post.substring(0, 250) +" ... "%></p>
+                        </div>
+
+                          <%}%>
+                        <%}%>
+                        
+                      </div>
+                      <div class="col-lg-6 border-start custom-border">
+                        <%for(let i =0; i<posts.length; i++){%>
+                          <% if(i%2 === 1){ %>
+                        <div class="post-entry-1">
+                          <a href="/posts/<%=posts[i]._id%>"><img src="/uploads/<%=posts[i].image%>" alt="" class="img-fluid"></a>
+                          <div class="post-meta"><span><%=posts[i].postdate%></span></div>
+                          <h2><a href="/post/<%=posts[i]._id%>"><%=posts[i].title%></a></h2>
+                          <p class="mb-4 d-block"><%=posts[i].post.substring(0, 250) +" ... "%></p>
+                        </div>
+                          <%}%>
+                        <%}%>
+                      </div>
+        
+                    
+                    </div>
+                  </div>
+        
+            </section><!-- End Lifestyle Category Section -->
+        
+          </main><!-- End #main -->
+
+
+
+
+
+
+
+<%- include('./partials/footer') %>

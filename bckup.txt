@@ -1,0 +1,33 @@
+    <%posts.forEach(post=>{%>
+
+        <div class="card" style="width: 12rem;">
+            <img class="card-img-top" src="/uploads/<%=post.image%>" alt="Card image cap">
+            <div class="card-body">
+                <h2> <%= post.title%> </h2>
+                <p> <%= post.post.substring(1, 250) +" ... " %>  <a href="/posts/<%=post._id%>">Read More</a></p>
+          </div>
+
+          <%})%>
+
+
+
+
+<%- include('./partials/header') %>
+<img  src="/uploads/<%=post.image%>" alt="" srcset="">
+        <h2> <%= post.title%> </h2>
+        <p> <%= post.post%> </p>
+
+<%- include('./partials/footer') %>
+
+
+
+                        <div class="post-entry-1">
+                          <a href="single-post.html"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
+                          <div class="post-meta"><span class="date">Food</span> <span class="mx-1">&bullet;</span> <span>Jul 17th '22</span></div>
+                          <h2><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                        </div>
+                        <div class="post-entry-1">
+                          <a href="single-post.html"><img src="assets/img/post-landscape-7.jpg" alt="" class="img-fluid"></a>
+                          <div class="post-meta"><span class="date">Design</span> <span class="mx-1">&bullet;</span> <span>Mar 15th '22</span></div>
+                          <h2><a href="single-post.html">Why Craigslist Tampa Is One of The Most Interesting Places On the Web?</a></h2>
+                        </div>

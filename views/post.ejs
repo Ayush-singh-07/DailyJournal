@@ -1,0 +1,19 @@
+<%- include('./partials/header') %>
+
+
+
+<div class="container" style="padding: 150px;">
+
+
+<img src="/uploads/<%=post.image%>" class="img-fluid" alt="Responsive image">
+<div class="post-meta"> <span><%= post.postdate%></span></div>
+<div class="single-post">
+                  
+        <h1 class="mb-5"><%= post.title%></h1>
+        <p style="font-size: large;"><span class="firstcharacter"></span><%= post.post%></p>
+
+</div>
+</div>
+
+
+<%- include('./partials/footer') %>
