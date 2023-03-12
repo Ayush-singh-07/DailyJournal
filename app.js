@@ -16,15 +16,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-const storage  = multer.diskStorage({
-    destination: (req, file, cb)=>{
-      cb(null, './public/uploads')
-    },
-    filename: (req, file, cb)=>{
-      const filename_suffix = (Date.now()+path.extname(file.originalname))
-        cb(null,  filename_suffix)
-    }
-})
+const storage = multer.memoryStorage()  //using memorystorage to store whole file on DB
 const upload = multer({ storage: storage })
 
 
@@ -42,7 +34,10 @@ const BlogPostSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
-      image: String,
+      image: {
+        data: Buffer,   //data sent by multer as buffer 
+        contentType: String
+      },
       postdate: String,
 })
 
@@ -53,6 +48,7 @@ const BlogPost = new mongoose.model('BlogPost' , BlogPostSchema);
 app.get('/', (req, res) =>{
   BlogPost.find({})
   .then((result) =>{
+    // console.log(result)
     res.render('home', {posts: result}); //ejs uses render
   })
   .catch((error) => {"Error : "+error})
@@ -81,7 +77,7 @@ app.post('/login', (req, res)=>{
     const email = req.body.userEmail
     const psw = req.body.userPsw
 
-    if(email === process.env.userMail  && psw === process.env.userPass ){
+    if(email === user_mail  && psw === user_pass ){
       res.render('compose');
     }
     else{
@@ -95,7 +91,10 @@ app.post('/compose',upload.single('composedImage'), (req,res)=>{
     const newPost = new BlogPost({
         title: req.body.composedTitle,
         post: req.body.postContent,
-        image: req.file.filename,
+        image: {
+          data: req.file.buffer, 
+          contentType : req.file.mimetype,
+        },
         postdate: date.getdate()
     })
 

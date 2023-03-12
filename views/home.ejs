@@ -28,6 +28,19 @@
                             </div>
                           </a>
                         </div>
+
+
+                        
+                        <div class="swiper-slide">
+                          <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/thoughts1.jpg');">
+                            <div class="img-bg-inner">
+                              <h2>Unfiltered Thoughts  </h2>
+                              <p>my unfiltered thoughts - unscripted, unplanned, and completely random! </p>
+                            </div>
+                          </a>
+                        </div>
+
+                        
         
                         <div class="swiper-slide">
                           <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/img_pr.jpg');">
@@ -37,7 +50,18 @@
                             </div>
                           </a>
                         </div>
-        
+
+
+
+                        <div class="swiper-slide">
+                          <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/Anime.jpg');">
+                            <div class="img-bg-inner">
+                              <h2>Anime </h2>
+                              <p>From the latest anime releases to my personal favorites </p>
+                            </div>
+                          </a>
+                        </div>
+
                         
                       </div>
                       <div class="custom-swiper-button-next">
@@ -81,7 +105,7 @@
                         <%for(let i =0; i<posts.length; i++){%>
                           <% if(i%2 === 0){ %>
                         <div class="post-entry-1">
-                          <a href="/posts/<%=posts[i]._id%>"><img src="/uploads/<%=posts[i].image%>" alt="" class="img-fluid"></a>
+                          <a href="/posts/<%=posts[i]._id%>"><img src="data:<%= posts[i].image.contentType %>;base64,<%= posts[i].image.data.toString('base64') %>" alt="" class="img-fluid"></a>
                           <div class="post-meta"><span><%=posts[i].postdate%></span></div>
                           <h2><a href="/post/<%=posts[i]._id%>"><%=posts[i].title%></a></h2>
                           <p class="mb-4 d-block"><%=posts[i].post.substring(0, 250) +" ... "%></p>
@@ -95,7 +119,7 @@
                         <%for(let i =0; i<posts.length; i++){%>
                           <% if(i%2 === 1){ %>
                         <div class="post-entry-1">
-                          <a href="/posts/<%=posts[i]._id%>"><img src="/uploads/<%=posts[i].image%>" alt="" class="img-fluid"></a>
+                          <a href="/posts/<%=posts[i]._id%>"><img src="data:<%= posts[i].image.contentType %>;base64,<%= posts[i].image.data.toString('base64') %>" alt="" class="img-fluid"></a>
                           <div class="post-meta"><span><%=posts[i].postdate%></span></div>
                           <h2><a href="/post/<%=posts[i]._id%>"><%=posts[i].title%></a></h2>
                           <p class="mb-4 d-block"><%=posts[i].post.substring(0, 250) +" ... "%></p>

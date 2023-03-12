@@ -2,10 +2,10 @@
 
 
 
-<div class="container" style="padding: 150px;">
+<div class="container" style="padding-top: 150px; padding-bottom: 70px;">
 
 
-<img src="/uploads/<%=post.image%>" class="img-fluid" alt="Responsive image">
+<img src="data:<%= post.image.contentType %>;base64,<%= post.image.data.toString('base64') %>" class="img-fluid" alt="Responsive image">
 <div class="post-meta"> <span><%= post.postdate%></span></div>
 <div class="single-post">
                   
