@@ -75,7 +75,10 @@ app.get('/login', (req, res)=>{
 
 app.post('/login', (req, res)=>{
     const email = req.body.userEmail
-    const psw = req.body.userPsw
+    const psw = req.body.userPass
+
+    const user_mail = ""+process.env.userMail
+    const user_pass = +process.env.userPass
 
     if(email === user_mail  && psw === user_pass ){
       res.render('compose');
