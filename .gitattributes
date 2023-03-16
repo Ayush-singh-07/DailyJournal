@@ -1,2 +1,1 @@
-*.css *.ejs linguist-detectable=false
-
+.css linguist-language=JavaScript
